@@ -1,7 +1,10 @@
+import AppBar from "./components/AppBar/AppBar";
 import "./App.css";
 
-function App() {
-  return <div className="App">hello</div>;
+export default function App() {
+  return (
+    <div>
+      <AppBar />
+    </div>
+  );
 }
-
-export default App;
