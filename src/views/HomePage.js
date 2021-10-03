@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import PageHeading from "../components/PageHeading/PageHeading";
+import HomePageMovies from "../components/HomePage/HomePageMovies";
 import * as moviesAPI from "../services/moviesApi";
 
 export default function HomePage() {
@@ -12,7 +13,8 @@ export default function HomePage() {
   }, []);
   return (
     <>
-      <PageHeading text="Movies" />
+      <PageHeading text="Trending today" />
+      {movies && <HomePageMovies movies={movies} />}
     </>
   );
 
