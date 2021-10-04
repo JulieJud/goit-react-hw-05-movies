@@ -21,6 +21,7 @@ export default function HomePageMovies({ movies }) {
                 alt={movie.title}
                 className={s.img}
               />
+
               <p className={s.p}>{movie.title}</p>
             </NavLink>
           </li>
