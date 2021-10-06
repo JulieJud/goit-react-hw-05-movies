@@ -1,11 +1,23 @@
-import { useEffect, useState } from "react";
-import { useParams, useLocation, useHistory } from "react-router";
-
+import { useEffect, useState, lazy, Suspense } from "react";
+import {
+  useParams,
+  useLocation,
+  useHistory,
+  useRouteMatch,
+} from "react-router";
+import { NavLink } from "react-router-dom";
 import * as moviesApi from "../services/moviesApi";
 import s from "../components/MovieDetails/MovieDetails.module.css";
 
+const Cast = lazy(() => import("./Cast" /* webpackChunkName: "cast" */));
+
+const Reviews = lazy(() =>
+  import("./Reviews" /* webpackChunkName: "reviews" */)
+);
+
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
+  const { url, path } = useRouteMatch();
 
   const [movie, setMovie] = useState(null);
   const location = useLocation();
@@ -56,6 +68,27 @@ export default function MovieDetailsPage() {
                   ))}
                 </span>
                 <h3>Additional information: </h3>
+                <NavLink
+                  to={{
+                    pathname: `${url}/cast`,
+                    state: { from: location?.state?.from ?? "/" },
+                  }}
+                  className="Navigation_link Addititonal_info"
+                  activeClassName="Active_link"
+                >
+                  Cast
+                </NavLink>
+
+                <NavLink
+                  to={{
+                    pathname: `${url}/reviews`,
+                    state: { from: location?.state?.from ?? "/" },
+                  }}
+                  className="Navigation_link Addititonal_info"
+                  activeClassName="Active_link"
+                >
+                  Reviews
+                </NavLink>
               </div>
             </div>
           </div>
