@@ -7,9 +7,14 @@ export default function HomePage() {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    moviesAPI.moviesTrending().then((data) => {
-      setMovies(data.results);
-    });
+    moviesAPI
+      .moviesTrending()
+      .then((data) => {
+        setMovies(data.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, []);
   return (
     <>
@@ -17,6 +22,4 @@ export default function HomePage() {
       {movies && <HomePageMovies movies={movies} />}
     </>
   );
-
-  //return <>{movies && <HomePageMovies movies={movies} />}</>;
 }

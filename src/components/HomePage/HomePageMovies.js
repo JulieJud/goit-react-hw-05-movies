@@ -1,8 +1,9 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useRouteMatch } from "react-router-dom";
 import s from "./HomePageMovies.module.css";
 
 export default function HomePageMovies({ movies }) {
   const location = useLocation();
+  const { url } = useRouteMatch();
 
   return (
     <div className={s.div}>
@@ -12,7 +13,7 @@ export default function HomePageMovies({ movies }) {
             <NavLink
               className={s.link}
               to={{
-                pathname: `movies/${`${movie.title} ${movie.id}`}`,
+                pathname: `${url}movies/${movie.id}`,
                 state: { from: { location, label: "Back to trend movies" } },
               }}
             >

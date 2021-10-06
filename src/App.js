@@ -13,7 +13,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact component={HomePage} />
 
-        <Route path="/movies/:slug" component={MovieDetailsPage} />
+        <Route path="/movies/:movieId" component={MovieDetailsPage} />
         <Route component={NotFoundViews} />
       </Switch>
     </div>
