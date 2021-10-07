@@ -8,7 +8,7 @@ import {
 } from "react-router";
 import { NavLink } from "react-router-dom";
 import * as moviesApi from "../services/moviesApi";
-import s from "../components/MovieDetails/MovieDetails.module.css";
+import s from "./MovieDetails.module.css";
 
 const Cast = lazy(() => import("./Cast.js" /* webpackChunkName: "cast" */));
 

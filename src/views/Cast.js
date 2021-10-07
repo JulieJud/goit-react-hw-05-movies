@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import * as moviesAPI from "../services/moviesApi";
-//import styles from './Cast.module.css';
+import defaultImg from "../defaultImg/osoba.png";
+import s from "./Cast.module.css";
 
 export default function Cast({ movieId }) {
   const [casts, setCasts] = useState(null);
@@ -10,15 +11,20 @@ export default function Cast({ movieId }) {
 
   return (
     <>
-      <ul>
+      <ul className={s.ul}>
         {casts &&
           casts.map((cast) => (
-            <li key={cast.id}>
+            <li className={s.li} key={cast.id}>
               <img
+                className={s.img}
                 alt={cast.name}
-                src={`https://image.tmdb.org/t/p/w300/${cast.profile_path}`}
+                src={
+                  cast.profile_path
+                    ? `https://image.tmdb.org/t/p/w300/${cast.profile_path}`
+                    : defaultImg
+                }
               />
-              <p>{cast.name}</p>
+              <p className={s.p}>{cast.name}</p>
             </li>
           ))}
       </ul>
