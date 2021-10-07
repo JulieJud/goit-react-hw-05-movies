@@ -1,5 +1,5 @@
 import { useState, useEffect, lazy } from "react";
-import * as moviesAPI from "../../services/moviesApi";
+import * as moviesApi from "../../services/moviesApi";
 import {
   useHistory,
   useLocation,
@@ -26,7 +26,7 @@ export default function MoviesPage() {
 
   useEffect(() => {
     if (!searchQuery) return;
-    moviesAPI.moviesSearch(searchQuery, page).then((data) => {
+    moviesApi.moviesSearch(searchQuery, page).then((data) => {
       if (data.results.length === 0) {
         return (
           `Sorry there are no movies with ${searchMovie} name`, setMovies([])
@@ -50,9 +50,11 @@ export default function MoviesPage() {
   };
 
   const showButton = movies.length >= 20;
+
   return (
     <div>
       <SearchBarPage onSubmit={handleFormSubmit} />
+
       {movies && (
         <ul className={s.ul}>
           {movies.map((movie) => (
