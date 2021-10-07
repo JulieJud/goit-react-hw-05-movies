@@ -74,8 +74,7 @@ export default function MovieDetailsPage() {
                     pathname: `${url}/cast`,
                     state: { from: location?.state?.from ?? "/" },
                   }}
-                  className="Navigation_link Addititonal_info"
-                  activeClassName="Active_link"
+                  className={s.link}
                 >
                   Cast
                 </NavLink>
@@ -85,8 +84,7 @@ export default function MovieDetailsPage() {
                     pathname: `${url}/reviews`,
                     state: { from: location?.state?.from ?? "/" },
                   }}
-                  className="Navigation_link Addititonal_info"
-                  activeClassName="Active_link"
+                  className={s.link}
                 >
                   Reviews
                 </NavLink>
