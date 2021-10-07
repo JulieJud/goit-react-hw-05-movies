@@ -24,7 +24,7 @@ export default function Reviews({ movieId }) {
           ))}
         </>
       )}
-      {reviews.length === 0 && <p>No reviews yet</p>}
+      {reviews.length === 0 && <p>No reviews</p>}
     </ul>
   );
 }
