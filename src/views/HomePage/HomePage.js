@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import PageHeading from "../components/PageHeading/PageHeading";
-import HomePageMovies from "../components/HomePage/HomePageMovies";
-import * as moviesAPI from "../services/moviesApi";
+import PageHeading from "../../components/PageHeading/PageHeading";
+import HomePageMovies from "../../components/HomePage/HomePageMovies";
+import * as moviesApi from "../../services/moviesApi";
 
 export default function HomePage() {
   const [movies, setMovies] = useState(null);
 
   useEffect(() => {
-    moviesAPI
+    moviesApi
       .moviesTrending()
       .then((data) => {
         setMovies(data.results);

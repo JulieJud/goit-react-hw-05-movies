@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as moviesApi from "../services/moviesApi";
+import * as moviesApi from "../../services/moviesApi";
 import s from "./Review.module.css";
 
 export default function Reviews({ movieId }) {

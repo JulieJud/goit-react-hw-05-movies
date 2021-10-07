@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import * as moviesAPI from "../services/moviesApi";
-import defaultImg from "../defaultImg/osoba.png";
+import * as moviesApi from "../../services/moviesApi";
+import defaultImg from "../../defaultImg/osoba.png";
 import s from "./Cast.module.css";
 
 export default function Cast({ movieId }) {
   const [casts, setCasts] = useState(null);
   useEffect(() => {
-    moviesAPI.movieCast(movieId).then((data) => setCasts(data.cast));
+    moviesApi.movieCast(movieId).then((data) => setCasts(data.cast));
   }, [movieId]);
 
   return (

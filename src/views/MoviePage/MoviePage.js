@@ -1,17 +1,17 @@
 import { useState, useEffect, lazy } from "react";
-import * as moviesAPI from "../services/moviesApi";
+import * as moviesAPI from "../../services/moviesApi";
 import {
   useHistory,
   useLocation,
   NavLink,
   useRouteMatch,
 } from "react-router-dom";
-import defaultImg from "../defaultImg/osoba.png";
+import defaultImg from "../../defaultImg/osoba.png";
 import s from "./MoviePage.module.css";
 
 const SearchBarPage = lazy(() =>
   import(
-    "../components/MovieDetails/SearchBar.js" /* webpackChunkName: "SearchBarPage"  */
+    "../../components/MovieDetails/SearchBar.js" /* webpackChunkName: "SearchBarPage"  */
   )
 );
 

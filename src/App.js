@@ -6,16 +6,20 @@ import AppBar from "./components/AppBar/AppBar";
 //import NotFoundViews from "./views/NotFoundView";
 
 const HomePage = lazy(() =>
-  import("./views/HomePage" /* webpackChunkName: "home-page"  */)
+  import("./views/HomePage/HomePage.js" /* webpackChunkName: "home-page"  */)
 );
 const MoviePage = lazy(() =>
-  import("./views/MoviePage" /* webpackChunkName: "search-bar"  */)
+  import("./views/MoviePage/MoviePage" /* webpackChunkName: "search-bar"  */)
 );
 const MovieDetailsPage = lazy(() =>
-  import("./views/MovieDetailsPage.js" /* webpackChunkName: "movie-details"  */)
+  import(
+    "./views/MovieDetailsPage/MovieDetailsPage.js" /* webpackChunkName: "movie-details"  */
+  )
 );
 const NotFoundViews = lazy(() =>
-  import("./views/NotFoundView.js" /* webpackChunkName: "NotFoundViews"  */)
+  import(
+    "./views/NotFound/NotFoundView.js" /* webpackChunkName: "NotFoundViews"  */
+  )
 );
 
 export default function App() {

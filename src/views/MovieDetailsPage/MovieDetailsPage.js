@@ -7,13 +7,15 @@ import {
   useRouteMatch,
 } from "react-router";
 import { NavLink } from "react-router-dom";
-import * as moviesApi from "../services/moviesApi";
+import * as moviesApi from "../../services/moviesApi";
 import s from "./MovieDetails.module.css";
 
-const Cast = lazy(() => import("./Cast.js" /* webpackChunkName: "cast" */));
+const Cast = lazy(() =>
+  import("../Cast/Cast.js" /* webpackChunkName: "cast" */)
+);
 
 const Reviews = lazy(() =>
-  import("./Reviews" /* webpackChunkName: "reviews" */)
+  import("../Review/Reviews.js" /* webpackChunkName: "reviews" */)
 );
 
 export default function MovieDetailsPage() {
