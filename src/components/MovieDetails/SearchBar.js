@@ -1,3 +1,5 @@
+import s from "./SearchBar.module.css";
+
 export default function SearchBarPage({ onSubmit }) {
   const handleSearch = (e) => {
     e.preventDefault();
@@ -10,17 +12,18 @@ export default function SearchBarPage({ onSubmit }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSearch}>
+    <div className={s.div}>
+      <form onSubmit={handleSearch} className={s.form}>
         <input
           type="text"
           name="searchMovie"
           autoComplete="off"
           autoFocus
           placeholder="Search Movies"
+          className={s.input}
         />
-        <button type="submit">
-          <span>Search</span>
+        <button type="submit" className={s.button}>
+          <span className={s.span}>Search</span>
         </button>
       </form>
     </div>

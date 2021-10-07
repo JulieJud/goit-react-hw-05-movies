@@ -23,7 +23,10 @@ export default function HomePageMovies({ movies }) {
                 className={s.img}
               />
 
-              <p className={s.p}>{movie.title}</p>
+              <p className={s.p}>
+                {movie.name && movie.name}
+                {movie.original_title}
+              </p>
             </NavLink>
           </li>
         ))}

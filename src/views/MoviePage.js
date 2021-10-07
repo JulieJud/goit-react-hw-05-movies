@@ -6,10 +6,12 @@ import {
   NavLink,
   useRouteMatch,
 } from "react-router-dom";
+import defaultImg from "../defaultImg/osoba.png";
+import s from "./MoviePage.module.css";
 
 const SearchBarPage = lazy(() =>
   import(
-    "../components/MovieDetails/MoviePage.js" /* webpackChunkName: "SearchBarPage"  */
+    "../components/MovieDetails/SearchBar.js" /* webpackChunkName: "SearchBarPage"  */
   )
 );
 
@@ -52,35 +54,37 @@ export default function MoviesPage() {
     <div>
       <SearchBarPage onSubmit={handleFormSubmit} />
       {movies && (
-        <>
-          <ul>
-            {movies.map((movie) => (
-              <li key={movie.id}>
-                <NavLink
-                  to={{
-                    pathname: `${url}/${`${movie.title} ${movie.id}`}`,
-                    state: {
-                      from: {
-                        location,
-                        label: "Back to search movies",
-                        search: `?query=${searchMovie}`,
-                      },
-                    },
-                  }}
-                >
-                  <img
-                    src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-                    alt={movie.title}
-                  />
-                  <p>{movie.title}</p>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-          {showButton && (
-            <button onClick={handleButtonLoadMore}>Load more</button>
-          )}
-        </>
+        <ul className={s.ul}>
+          {movies.map((movie) => (
+            <li key={movie.id} className={s.li}>
+              <NavLink
+                to={{
+                  pathname: `${url}/${movie.id}`,
+                  state: { from: { location } },
+                }}
+              >
+                <img
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                      : defaultImg
+                  }
+                  alt={movie.title}
+                  className={s.img}
+                />
+              </NavLink>
+              <p className={s.p}>
+                {movie.name && movie.name}
+                {movie.original_title}
+              </p>
+            </li>
+          ))}
+        </ul>
+      )}
+      {showButton && (
+        <button onClick={handleButtonLoadMore} className={s.button}>
+          Load more
+        </button>
       )}
     </div>
   );

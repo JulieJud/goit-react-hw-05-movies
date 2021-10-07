@@ -34,6 +34,7 @@ export default function MovieDetailsPage() {
       .catch((error) => {
         console.log(error);
         history.push(locationFrom ?? "/movies");
+        alert("sorry not found");
       });
   }, [movieId, locationFrom, history]);
 

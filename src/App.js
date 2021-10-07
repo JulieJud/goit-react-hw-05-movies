@@ -25,7 +25,6 @@ export default function App() {
         <AppBar />
         <Switch>
           <Route path="/" exact component={HomePage} />
-
           <Route path="/movies/:movieId" component={MovieDetailsPage} />
           <Route path="/movies" component={MoviePage} />
           <Route component={NotFoundViews} />
