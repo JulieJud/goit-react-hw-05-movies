@@ -7,6 +7,7 @@ import {
   useLocation,
   useHistory,
 } from "react-router-dom";
+
 import s from "./MovieDetails.module.css";
 
 const Cast = lazy(() =>
@@ -23,8 +24,6 @@ export default function MoviePageDetails({ movie }) {
   const { movieId } = useParams();
   const { url, path } = useRouteMatch();
   const locationFrom = location?.state?.from?.location;
-
-  // const [movie, setMovie] = useState(null);
 
   const goBack = () => {
     history.push(locationFrom ?? "/");
