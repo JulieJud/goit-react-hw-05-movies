@@ -1,27 +1,14 @@
-import { useEffect, useState, lazy, Suspense } from "react";
-import {
-  Route,
-  useParams,
-  useLocation,
-  useHistory,
-  useRouteMatch,
-} from "react-router";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState, lazy } from "react";
+import { useParams, useLocation, useHistory } from "react-router";
 import * as moviesApi from "../../services/moviesApi";
-import s from "./MovieDetails.module.css";
-
-const Cast = lazy(() =>
-  import("../Cast/Cast.js" /* webpackChunkName: "cast" */)
-);
-
-const Reviews = lazy(() =>
-  import("../Review/Reviews.js" /* webpackChunkName: "reviews" */)
+const MoviePageDetails = lazy(() =>
+  import(
+    "../../components/MovieInfo/MovieInfo" /* webpackChunkName: "MoviePageDetails"  */
+  )
 );
 
 export default function MovieDetailsPage() {
   const { movieId } = useParams();
-  const { url, path } = useRouteMatch();
-
   const [movie, setMovie] = useState(null);
   const location = useLocation();
   const history = useHistory();
@@ -40,11 +27,14 @@ export default function MovieDetailsPage() {
       });
   }, [movieId, locationFrom, history]);
 
-  const goBack = () => {
-    history.push(locationFrom ?? "/");
-  };
+  return <>{movie && <MoviePageDetails movie={movie} />}</>;
+}
 
-  return (
+//const goBack = () => {
+//  history.push(locationFrom ?? "/");
+// };
+
+/* return (
     <div>
       {movie && (
         <>
@@ -107,4 +97,4 @@ export default function MovieDetailsPage() {
       </Suspense>
     </div>
   );
-}
+}*/
