@@ -4,9 +4,11 @@ import defaultImg from "../../defaultImg/osoba.png";
 import s from "./Cast.module.css";
 
 export default function Cast({ movieId }) {
-  const [casts, setCasts] = useState(null);
+  const [casts, setCasts] = useState("");
+
   useEffect(() => {
     moviesApi.movieCast(movieId).then((data) => setCasts(data.cast));
+    window.scrollTo({ top: 690, behavior: "smooth" });
   }, [movieId]);
 
   return (
@@ -27,6 +29,7 @@ export default function Cast({ movieId }) {
               <p className={s.p}>{cast.name}</p>
             </li>
           ))}
+        {casts.length === 0 && <p>No reviews</p>}
       </ul>
     </>
   );

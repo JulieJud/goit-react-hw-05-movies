@@ -7,6 +7,7 @@ import {
   useLocation,
   useHistory,
 } from "react-router-dom";
+import defaultImg from "../../defaultImg/osoba.png";
 
 import s from "./MovieDetails.module.css";
 
@@ -38,8 +39,12 @@ export default function MoviePageDetails({ movie }) {
         <div className={s.movie_card}>
           <img
             className={s.img}
-            src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie.original_title}
+            src={
+              movie.profile_path
+                ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                : defaultImg
+            }
           />
           <div>
             <h1 className={s.h1}>{movie.title}</h1>
