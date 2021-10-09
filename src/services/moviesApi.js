@@ -63,6 +63,6 @@ export function movieReviews(movieId) {
 
 export function moviesSearch(searchName, page) {
   return fetchMovies(
-    `${BASE_URL}/search/movie?api_key=${Api_key}&page=${page}&query=${searchName}&language=en-US&page=1&include_adult=false`
+    `${BASE_URL}/search/movie?api_key=${Api_key}&page=${page}&query=${searchName}&language=en-US&include_adult=false`
   );
 }

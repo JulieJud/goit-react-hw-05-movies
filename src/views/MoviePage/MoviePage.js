@@ -26,6 +26,7 @@ export default function MoviesPage() {
 
   useEffect(() => {
     if (!searchQuery) return;
+
     moviesApi.moviesSearch(searchQuery, page).then((data) => {
       if (data.results.length === 0) {
         return (
