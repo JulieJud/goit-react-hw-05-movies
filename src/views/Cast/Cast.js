@@ -29,7 +29,7 @@ export default function Cast({ movieId }) {
               <p className={s.p}>{cast.name}</p>
             </li>
           ))}
-        {casts.length === 0 && <p>No reviews</p>}
+        {casts.length === 0 && <p>No casts</p>}
       </ul>
     </>
   );
